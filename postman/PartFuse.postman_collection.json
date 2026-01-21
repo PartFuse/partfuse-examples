@@ -1,0 +1,174 @@
+{
+    "info": {
+        "_postman_id": "partfuse-collection-v1",
+        "name": "PartFuse API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Search Parts",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "X-RapidAPI-Key",
+                        "value": "{{rapidapi_key}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-RapidAPI-Host",
+                        "value": "{{rapidapi_host}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/v1/search?q={{search_query}}&limit=10",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "search"
+                    ],
+                    "query": [
+                        {
+                            "key": "q",
+                            "value": "{{search_query}}",
+                            "description": "Manufacturer Part Number"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10",
+                            "description": "Max results"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Compare Part",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "X-RapidAPI-Key",
+                        "value": "{{rapidapi_key}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-RapidAPI-Host",
+                        "value": "{{rapidapi_host}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/v1/compare/{{part_number_compare}}?qty={{qty}}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "compare",
+                        "{{part_number_compare}}"
+                    ],
+                    "query": [
+                        {
+                            "key": "qty",
+                            "value": "{{qty}}",
+                            "description": "Quantity for pricing"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "BOM Compare",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "X-RapidAPI-Key",
+                        "value": "{{rapidapi_key}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-RapidAPI-Host",
+                        "value": "{{rapidapi_host}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"lines\": [\n    {\n      \"mpn\": \"LM7805\",\n      \"quantity\": 10,\n      \"reference\": \"U1\"\n    }\n  ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/api/v1/bom/compare",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "bom",
+                        "compare"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "X-RapidAPI-Key",
+                        "value": "{{rapidapi_key}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "X-RapidAPI-Host",
+                        "value": "{{rapidapi_host}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/health",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "health"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "search_query",
+            "value": "STM32F4",
+            "type": "string"
+        },
+        {
+            "key": "part_number_compare",
+            "value": "LM7805",
+            "type": "string"
+        },
+        {
+            "key": "qty",
+            "value": "50",
+            "type": "string"
+        }
+    ]
+}

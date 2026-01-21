@@ -1,0 +1,14 @@
+{
+    "lines": [
+        {
+            "mpn": "ESP32-WROOM-32",
+            "quantity": 10,
+            "reference": "MOD1"
+        },
+        {
+            "mpn": "AMS1117-3.3",
+            "quantity": 20,
+            "reference": "U2"
+        }
+    ]
+}

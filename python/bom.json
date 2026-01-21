@@ -1,0 +1,14 @@
+{
+    "lines": [
+        {
+            "mpn": "STM32F407VGT6",
+            "quantity": 100,
+            "reference": "U1"
+        },
+        {
+            "mpn": "1K Resistor",
+            "quantity": 500,
+            "reference": "R1-R500"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+name: Smoke Test
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Health
+        env:
+          PARTFUSE_RAPIDAPI_KEY: ${{ secrets.PARTFUSE_RAPIDAPI_KEY }}
+        run: |
+          if [ -z "$PARTFUSE_RAPIDAPI_KEY" ]; then
+            echo "Skipping test: PARTFUSE_RAPIDAPI_KEY not found in secrets"
+            exit 0
+          fi
+          
+          echo "Running health check..."
+          cd curl
+          chmod +x health.sh
+          ./health.sh

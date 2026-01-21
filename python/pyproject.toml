@@ -1,0 +1,12 @@
+[project]
+name = "partfuse_examples"
+version = "0.1.0"
+description = "PartFuse API Examples for Python"
+dependencies = [
+    "requests",
+    "httpx",
+    "python-dotenv",
+]
+
+[tool.setuptools]
+packages = ["partfuse_examples"]
